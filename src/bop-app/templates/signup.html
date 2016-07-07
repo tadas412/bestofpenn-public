@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Best of Penn</title>
+
+        <link rel="stylesheet" href="../static/css/style.css">     
+    
+  </head>
+
+  <body>
+
+    <!--Google Font - Work Sans-->
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+    <div class="container">
+      <div class="profile--open">
+        <button class="profile__avatar" id="toggleProfile">
+            <img src="../static/img/bestofpennlogo.png" alt="Avatar"/>
+            
+        </button>
+        <div class="profile__form" style="background-color: #f2f2f2">
+          <div class="profile__fields">
+            
+            <form class="form-signin" method="post">
+              <div class="field">
+                <input type="email" name="inputEmail" id="inputEmail" class="input" required pattern=.*\S.* />
+                <label for="inputEmail" class="label">Email Address</label>
+              </div>  
+                
+              <div class="field">
+                <input type="password" name="inputPassword" id="inputPassword" class="input" required pattern=.*\S.* />
+                <label for="inputPassword" class="label">Password</label>
+              </div>
+                
+              <div class="profile__footer">
+                 <input type="hidden" id="field" name="field">
+                 <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
+              </div>
+          </form>
+          </div>
+         </div>
+      </div>
+    </div>
+        
+    <script src="../static/js/index.js"></script>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+      $(function() {
+          $('#btnSignUp').click(function() {
+       
+              $.ajax({
+                  url: '/signUp',
+                  data: $('form').serialize(),
+                  type: 'POST',
+                  success: function(response) {
+                      console.log(response);
+                      window.location = '/'
+                  },
+                  error: function(error) {
+                      console.log(error);
+                  }
+              });
+          });
+      });
+  </script>
+
+    
+    
+    
+  </body>
+</html>

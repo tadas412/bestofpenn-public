@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Best of Penn</title>
+ 
+    <link rel="icon" href="../static/img/crest.png" type="image/x-icon">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+ 
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+ 
+ 
+</head>
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="/topicHome">Cancel</a>
+                    </li>
+                    <li role="presentation"><a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Best of Penn</h3>
+        </div>
+        <section>
+            <form class="form-horizontal" method="post" action="/addEntity">
+                <fieldset>
+ 
+                    <!-- Form Name -->
+                    <legend>Create An Entity</legend>
+ 
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Entity Name</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputName" type="text" placeholder="Eg. Dos Hermanos" class="form-control input-md">
+                        </div>
+                    </div>
+ 
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost">Description</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="inputDescription" placeholder="Incredible Mexican food! On the corner of 34th and Market"></textarea>
+                        </div>
+                    </div>
+ 
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Create" />
+                        </div>
+                    </div>
+ 
+                </fieldset>
+            </form>
+ 
+        </section>
+        <footer class="footer">
+            <p>Copyright &copy; Best of Penn 2016. All Rights Reserved</p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>

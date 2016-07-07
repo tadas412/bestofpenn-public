@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Topics Created', 'Number of Ratings'],
+          [0, 0],
+          [0, 39],
+          [0, 28],
+          [0, 27],
+          [0, 61],
+          [0, 15],
+          [0, 0],
+          [0, 51],
+          [0, 23],
+          [0, 91],
+          [1, 104],
+          [2, 64],
+          [5, 43],
+          [2, 32],
+          [0, 23],
+          [0, 13],
+          [0, 79],
+          [0, 19],
+          [0, 12],
+          [0, 43],
+          [0, 6],
+          [0, 120],
+          [3, 90],
+          [0, 7],
+          [0, 1],
+          [4, 6],
+          [0, 16],
+          [0, 35],
+          [0, 62],
+          [1, 1],
+          [0, 262],
+          [0, 27],
+          [7, 12],
+          [0, 14],
+          [0, 41],
+          [0, 8],
+          [0, 30],
+          [0, 23],
+          [0, 7],
+          [0, 102],
+          [2, 113],
+          [0, 15],
+          [2, 79],
+          [0, 32],
+          [0, 30],
+          [0, 59],
+          [2, 55],
+          [0, 42]
+        ]);
+
+        var options = {
+          title: 'Topics Created vs. Number of Ratings',
+          hAxis: {title: 'Topics Created', minValue: 0, maxValue: 6},
+          vAxis: {title: 'Number of Ratings', minValue: 0, maxValue: 200},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html> 

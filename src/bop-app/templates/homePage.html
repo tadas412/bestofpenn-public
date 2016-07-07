@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Best of Penn</title>
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+        <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+        <link href="../static/css/signup.css" rel="stylesheet">
+        <link href="../static/css/ratingStars.css" rel="stylesheet">
+        <link rel="icon" href="../static/img/crest.png" type="image/x-icon">
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+        <style>
+            .trash { margin-left:5px; color:rgb(209, 91, 71); }
+            .panel-body .checkbox { display:inline-block;margin:0px; }
+            .list-group { margin-bottom:0px; }
+
+            .button-list {
+                background:none!important;
+                border:none; 
+                padding:0!important;
+                font: inherit;
+                /*border is optional*/
+                cursor: pointer;
+            }
+        </style>
+       
+    </head>
+
+    <body>
+
+        <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Best of Penn</h3>
+        </div>
+
+        <a href="/showAddTopic" style="font-size: 20px">+ Add Topic</a>
+        <br><br>
+
+        <div class="checkbox btn-danger" style="padding:10px 10px 10px 10px; text-align: center; border-radius:4px">
+            <p>You can unlock more lists by contributing to the ratings on the lists you can already view. Scroll to the bottom of the page to see the latest entries!</p>
+        </div>
+
+        <br>
+
+        <div class="well">
+
+        </div>
+
+        <form action="/setTopic" method="post" id="topicForm">
+            <input type="hidden" name="topicID" id="topicID">
+        </form>
+
+    </body>
+    <script>
+        $(function(){
+            $.ajax({
+                url: '/getTopic',
+                type: 'GET',
+                success:function(response) {
+                var data = JSON.parse(response);
+                var itemsPerRow = 0;
+                var div = $('<div>').attr('class','row');
+                var credits = data[0].Credits;
+                var num_lists = credits + 5;
+
+                for(var i=0;i<data.length;i++){                    
+                    var limit_reached = (i>num_lists-1);
+                    var undr_ratings_thresh = (data[i].Ratings>25);
+                    if(itemsPerRow<3){
+                        
+                        if(i==data.length-1){
+                            div.append(CreateThumb(data[i].ID,data[i].Name,data[i].Description,data[i].FilePath,limit_reached,undr_ratings_thresh));
+                            $('.well').append(div);
+                        }
+                        else{
+                        div.append(CreateThumb(data[i].ID,data[i].Name,data[i].Description,data[i].FilePath,limit_reached,undr_ratings_thresh));
+                        itemsPerRow++;
+                        }
+                    }
+                    else{
+                        $('.well').append(div);
+                        div = $('<div>').attr('class','row');
+                        div.append(CreateThumb(data[i].ID,data[i].Name,data[i].Description,data[i].FilePath,limit_reached,undr_ratings_thresh));
+                        if(i==data.length-1){
+                            $('.well').append(div);
+                        }
+                        itemsPerRow = 1;
+                    }
+                }
+                
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+
+        })
+        function CreateThumb(id,title,desc,filepath,limit_reached,undr_ratings_thresh){
+            var mainDiv = $('<div>').attr('class','col-sm-4 col-md-4');
+            var thumbNail = $('<div>').attr('class','thumbnail');
+            var img = $('<img>').attr({'src':filepath,'data-holder-rendered':true,'style':'height: 150px; width: 150px; display: block'});
+            var caption = $('<div>').attr('class','caption');
+            var title = $('<h3>').text(title);
+            var desc = $('<p>').text(desc);
+            var locked_filepath = 'static/img/locked.png';
+            
+
+            var p = $('<p>');
+            var btn = $('<button>').attr({'id':id,'type':'button','class':'btn btn-danger btn-sm','onclick':'ShowTopicEntities(this)'});
+            var span = $('<span>').attr({'class':'glyphicon glyphicon-list','aria-hidden':'true'});
+
+            var btn2 = $('<button>').attr({'id':'Flag-'+id, 'value':'FLAG','type':'button','class':'btn btn-danger btn-sm','style':'margin-left:20px','onclick':'FlagTopic(this)'});
+            var span2 = $('<span>').attr({'class':'glyphicon glyphicon-flag','aria-hidden':'true'});
+
+            if (limit_reached && undr_ratings_thresh) {
+                img = $('<img>').attr({'src':locked_filepath,'data-holder-rendered':true,'style':'height: 150px; width: 150px; display: block'});
+                btn = $('<button>').attr({'id':id,'type':'button','class':'btn btn-danger btn-sm'});
+                btn2 = $('<button>').attr({'id':'Flag-'+id, 'value':'FLAG','type':'button','class':'btn btn-danger btn-sm','style':'margin-left:20px'});
+
+            }
+            p.append(btn.append(span)).append(btn2.append(span2));
+            
+            
+            
+            caption.append(title);
+            caption.append(desc);
+            caption.append(p);
+
+            thumbNail.append(img);
+            thumbNail.append(caption);
+            mainDiv.append(thumbNail);
+            return mainDiv;
+
+            
+        }
+    </script>
+    <script>
+
+        function ShowTopicEntities(elem) {
+
+            var elemId = $(elem).attr("id");
+            console.log(elemId);
+            document.getElementById("topicID").value = elemId;
+            document.forms["topicForm"].submit();
+        }
+
+        function FlagTopic(buttonId) {
+            var topicID = buttonId.id;
+            id = topicID.split("-")[1];
+            console.log("topic: " + id);
+
+            document.getElementById(topicID).style.background='#ff3333';
+
+            $.ajax({
+                url : '/addListFlag',
+                type: 'POST',
+                data: {'topicID' : id},
+                success: function(res) {
+                    console.log('flag submitted!')
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+
+            })
+
+        }
+        
+    </script>
+</html>

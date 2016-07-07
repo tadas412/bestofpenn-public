@@ -1,0 +1,48 @@
+#mysqldump --host=the.remotedatabase.com -u yourusername -p yourdatabasename > /User/backups/adump.sql
+
+mysql -h bestofpennmysql.cqf3bokykxqv.us-east-1.rds.amazonaws.com -u masteruser -pBestofpenn213 BestOfDBMySQL
+
+mysqldump --host=bestofpennmysql.cqf3bokykxqv.us-east-1.rds.amazonaws.com -u masteruser -pBestofpenn213 BestOfDBMySQL > /Users/Admin/Desktop/bestofpenn/data/peersqldump.sql
+
+SELECT * INTO OUTFILE '~/userdump.csv'
+	FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+	LINES TERMINATED BY '\n'
+	FROM users;
+
+SELECT * INTO OUTFILE '~/entitydump.csv'
+	FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+	LINES TERMINATED BY '\n'
+	FROM entities;
+
+SELECT * INTO OUTFILE '~/listdump.csv'
+	FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+	LINES TERMINATED BY '\n'
+	FROM lists;
+
+SELECT * INTO OUTFILE '~/ratingdump.csv'
+	FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+	LINES TERMINATED BY '\n'
+	FROM ratings as r, users as u, entities as e;
+
+
+mysql -h bestofpennmysql.cqf3bokykxqv.us-east-1.rds.amazonaws.com -umasteruser -pBestofpenn213 BestOfDBMySQL -B -e "SELECT * FROM \`users\`;" | sed "s/'/\'/;s/\t/\",\"/g;s/^/\"/;s/$/\"/;s/\n//g" > /Users/Admin/Desktop/bestofpenn/data/userdump.csv
+
+SELECT u.user_id, count(r.entity_id) as "num_ratings", count(e.entity_id) as "num_entities", count(l.list_id) as "num_topics" FROM users as u LEFT JOIN (ratings as r, entities as e, lists as l) ON (u.user_id=r.user_id AND u.user_id=e.creator_id AND u.user_id=l.creator_id) GROUP BY u.user_id;
+
+
+SELECT ut.user_id, num_ratings, num_entities, num_topics FROM
+	( SELECT user_id from users
+	) ut LEFT JOIN (
+		( SELECT user_id FROM users
+		) as ut,
+		( SELECT user_id, count(entity_id) FROM e )
+	) ON (
+
+	);
+
+SELECT u.user_id, count(distinct r.entity_id) as "num_ratings", count(distinct e.entity_id) as "num_entities", count(distinct l.list_id) as "num_topics" FROM
+	users as u
+	LEFT JOIN (ratings as r, entities as e, lists as l) 
+	ON (u.user_id=r.user_id OR u.user_id=e.creator_id OR u.user_id=l.creator_id) 
+	GROUP BY u.user_id;
+

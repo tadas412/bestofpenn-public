@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Best of Penn</title>
+
+        <link rel="icon" href="../static/img/crest.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+        <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+        <link href="../static/css/signup.css" rel="stylesheet">
+        <link href="../static/css/rating.css" rel="stylesheet">
+
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+        <style>
+            .trash { margin-left:5px; color:rgb(209, 91, 71); }
+            .panel-body .checkbox { display:inline-block;margin:0px; }
+            .list-group { margin-bottom:0px; }
+        </style>
+       
+    </head>
+
+    <body>
+
+        <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="/clearTopic">Go Back</a></li>
+                    <li role="presentation" class="active"><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Best of Penn</h3>
+        </div>
+        <p style="font-size:15px"><b>{{topic_name}}</b> &nbsp; | &nbsp;<b>{{size}} Entities</p>
+        <br>
+        <a href="/showAddEntity" style="font-size: 20px">+ Add Entity</a>
+
+
+
+        <script id="listTemplate" type="text/x-jQuery-tmpl">
+            <li class="list-group-item">
+                <div class="checkbox">
+                    <label>
+                        <b>${Name}&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;</b> <i class="text-muted">${Desc} | &nbsp;&nbsp;&nbsp; ${Rating}</i>
+                    </label>
+                        
+                        <br><br>
+                        <button id="${ID}-1" onclick="SaveRatings(this)"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button> 
+                        <button id="${ID}-2" onclick="SaveRatings(this)"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
+                        <button id="${ID}-3" onclick="SaveRatings(this)"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
+                        <button id="${ID}-4" onclick="SaveRatings(this)"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
+                        <button id="${ID}-5" onclick="SaveRatings(this)"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>
+                        <button class="btn btn-danger btn-sm" type="button" value="Flag" id="${ID}" onclick="FlagEntity(this)" style="margin-left:20px"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></button>
+                    </label>
+                    <br><br>
+                    <label>
+                        <p><b>Your Current Rating:</b> &nbsp; <i>${UserRating}</i></p>
+                    </label>
+                 </div>
+            </li>   
+        </script>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                
+                    <div class="panel-body">
+
+                        <ul id="ulist" class="list-group">
+                            
+
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+
+    </body>
+
+    <script>
+        $(function(){
+            var entities = GetTopicEntities();   
+        });
+    
+        function GetTopicEntities(){
+            $.ajax({
+                url : '/getTopicEntities',
+                type : 'GET',
+                success: function(res){                  
+                    var groupObj = JSON.parse(res);
+                    $('#ulist').empty();
+                    $('#listTemplate').tmpl(groupObj).appendTo('#ulist');
+                    // $('#rating-listeners').tmpl(groupObj).appendTo('#ulist');
+                    console.log(groupObj);
+
+                    return groupObj;
+                    // console.log(groupObj);
+                    
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        }
+
+        function SaveRatings(buttonID) {
+            var idRating = buttonID.id.split("-");
+            var id = idRating[0];
+            var rating = idRating[1];
+            // console.log(id, rating);
+            // console.log("button clicked: " + button.id);
+            var buttonid = buttonID.id;
+            console.log("button: " + buttonid);
+            // $(buttonid).css('background-color','#f47121');
+            for (var i = 1; i <=5; i++) {
+                otr_btnid = id + "-" + i;
+                if (i <= rating) {
+                    
+                    document.getElementById(otr_btnid).style.background='#ffd633';
+                }
+                else {
+                    document.getElementById(otr_btnid).style.background = '#fcfcfc';
+                }
+            }
+            
+
+            $.ajax({
+                url : '/addEntityRating',
+                type: 'POST',
+                data: {'entityID' : id, 'rating' : rating},
+                success: function(res) {
+                    console.log('rating submitted!')
+                    // var button = document.getElementById(buttonID.id);
+                    // button.style.background-color = "#f447121";
+                    
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+
+            })
+        }
+
+        function FlagEntity(buttonId) {
+            var entityID = buttonId.id;
+
+            document.getElementById(entityID).style.background='#ff3333';
+
+            $.ajax({
+                url : '/addEntityFlag',
+                type: 'POST',
+                data: {'entityID' : entityID},
+                success: function(res) {
+                    console.log('flag submitted!')
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+
+            })
+
+        }
+    </script>
+
+    <script src="../static/js/rating.js"></script>
+    
+</html>

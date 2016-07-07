@@ -1,0 +1,408 @@
+entity_id,list_id,entity_name,COUNT(R.rating)
+1,1,Beijing,24
+2,1,"Dim Sum Garden",29
+3,1,"La Viola",31
+4,1,"Banana Leaf",32
+5,1,Iztaccihuatl,16
+6,2,"Tap House",34
+7,2,"White Dog",34
+8,2,"Renata's Kitchen",25
+9,2,"Sabrina's Cafe",36
+10,2,"Farmacy Rx",22
+11,3,Lynn's,18
+12,3,"Don Memmo's",8
+13,3,"Magic Carpet",18
+14,3,"Kim's Food Truck",13
+15,3,Nora's,6
+16,4,Saxby's,25
+17,4,Starbucks,26
+18,4,HubBub,25
+19,4,Capogiro,21
+20,4,"United by Blue",22
+21,1,Lolitas,10
+22,1,"Thai Singha",19
+23,1,Sitar,24
+24,1,"Will BYOB",8
+25,2,Parc,27
+26,5,"Starbucks Under Comm",3
+27,4,"Elixr Cafe",15
+28,8,Rodin,15
+29,8,KCEH,14
+30,8,Harnwell,15
+31,8,Harrison,14
+32,8,Ware,16
+33,8,Riepe,15
+34,8,"Sansom West",13
+35,8,Fisher,16
+36,8,Hill,19
+37,9,Sitar,9
+38,9,"Han Dynasty",18
+39,9,Zestos,14
+40,9,Co-Zara,5
+41,9,Ochatto,13
+42,9,SweetGreen,14
+43,9,Chipotle,14
+44,9,Bobby's,12
+45,9,Beijing,11
+46,9,Wawa,15
+47,10,Barbuzzo,4
+48,3,"Amir's Gyro",13
+49,3,MexiCali,10
+50,3,"Schmear It",19
+51,3,Bui's,17
+52,12,"Best Of Penn",12
+53,1,Aksum,18
+54,3,Tang's,7
+55,5,"Joe's Cafe",1
+56,6,"$3 Long Island Iced ",10
+57,8,Gregory,11
+58,11,"South Street",7
+59,11,Gayborhood,8
+60,9,"White Dog",14
+61,9,"Doc Magrogan's",6
+62,9,Koreana,14
+63,9,UTown,6
+64,9,"Frogro Food Court th",8
+65,6,"Copa Margs",14
+66,10,"Fogo de Chao",5
+67,10,Mercato,3
+68,5,"Starbucks Under Comm",2
+69,5,"Van Pelt",1
+70,6,"Mad Mex",13
+71,7,Rumor,6
+72,7,Recess,5
+73,7,"Tria Cafe Rittenhous",7
+74,3,"Tyson's Bees",13
+75,9,HipCityVeg,10
+76,11,Fishtown,6
+77,11,"Old City",7
+78,10,"High Street On Marke",3
+79,4,"La Colombe",12
+80,1,Saigon,18
+81,3,"Sugar Philly",11
+82,4,"Green Line Cafe",18
+83,6,"Distrito Happy Hour",9
+84,3,"Sonic Cheesesteak",7
+85,5,"Fisher Fine Arts Lib",1
+87,5,"Harrison mezzanine",2
+89,5,"Rodin Rooftop lounge",2
+90,5,"Harrison rooftop lou",2
+91,5,"harnwell rooftop lou",2
+92,3,"Cucina Zapata",6
+93,2,Ant,11
+94,2,"Ant's Pants Cafe",15
+95,4,"Good Karma Cafe",8
+96,4,"Joe's ",12
+97,3,"Chez Yasmine",5
+98,10,"Alma De Cuba",4
+99,10,Zahav,3
+100,10,"Wedge and Fig",2
+101,9,"Ramen Bar",10
+102,9,"Kitchen Gia",3
+103,1,"Shanghai Station ",9
+104,1,Koreana,20
+105,9,"sangkee noodle house",4
+106,9,"Shanghai Station",4
+107,10,"Garces Trading Compa",3
+109,13,"Kiwi Frozen Yogurt",9
+110,13,"Insomnia Cookie",11
+111,14,"Miel Patisserie ",4
+112,14,Magpie,4
+113,14,Yogorino,8
+114,13,"Pari Cafe Creperie",4
+115,4,"Petrus Py Cafe",11
+116,9,"Spicy Sichuan",2
+117,2,"Distrito ",19
+118,2,"Hill Dining ",30
+119,14,Carlos,2
+120,14,Kiwi,8
+121,12,Shiki,5
+122,19,"Women Squash ",4
+123,19,"Men Squash ",4
+124,19,"Women Field Hockey ",2
+125,19,"Men Tennis ",5
+126,19,Football,5
+127,19,"Women Light Weight R",2
+128,2,Honey's,15
+129,15,"College Green ",4
+130,12,"Truck 'n Go",6
+131,20,"Education Commons",7
+132,20,Towne,5
+133,9,"Greek Lady",9
+134,9,"Waterfront Cafe",3
+135,9,Wishbone,8
+136,10,"Butcher and Singer",5
+137,21,"Computer Science",14
+138,13,Yogorino,6
+139,14,"Cake and the Beansta",4
+140,14,"Scoop DeVille",4
+141,3,Terry's,9
+142,16,"River trail",11
+143,2,Aksum,13
+144,1,Marrakesh,12
+145,4,"Square One Coffee",6
+146,1,"Ken's Seafood",17
+147,7,"Hop Sing Laundromat",3
+148,7,"National Mechanics",3
+149,7,"Charlie Was a Sinner",4
+150,7,"Graffiti Bar",3
+151,3,Hemo's,4
+152,3,"The Real Le Ahn's",5
+154,9,"New Deck Tavern",4
+155,9,"Federal Donuts",5
+156,9,Mizu,2
+157,17,"Cassie Mogilner",3
+158,17,"Chris Callison-Burch",10
+159,17,"Rajiv Gandhi",8
+160,17,"Stephanie Weirich",6
+161,17,"Drew Carton",2
+162,17,"Gizem Saka",3
+163,10,Lolita,1
+164,10,"Dim Sum Garden",3
+165,10,Zavino,5
+166,6,Smoke's,10
+167,6,"Doc Magrogan's",5
+168,6,"William Street Commo",5
+169,1,Sakura,6
+170,1,"Smile Cafe",5
+171,1,"Bistro la Baia",9
+172,1,"Giorgio on Pine",10
+173,10,"Marigold Kitchen",2
+174,2,"Honest Tom's",29
+175,10,"Luke's Lobster",1
+176,18,"Arch Patio",8
+177,21,Finance,9
+178,15,"My own house",5
+180,20,"My own bed!",9
+181,16,"Woodlands Cemetary l",7
+182,16,"Baltimore Ave/Clark ",5
+183,19,"Men's Club Lacrosse!",4
+184,22,"Walk downtown",11
+185,2,"Greek Lady",22
+186,2,"The Gold Standard Ca",10
+187,1,"Nom Wah Tea Parlor",8
+188,1,"Honest Tom's",18
+189,4,"Avril 50",8
+190,4,"Federal Donuts",9
+191,7,McGillin's,4
+192,7,"Bob and Barbara's",3
+193,18,"College Green",9
+194,18,"Highrise Field",9
+195,18,"Van Pelt",8
+196,18,"Engineering Cafe",8
+197,1,"La Fontana",15
+198,20,"Highrise Field",4
+199,22,"Go to the movies",6
+200,22,Party,9
+201,22,"Happy Hour",8
+202,22,SABS,5
+203,21,NETS,10
+204,21,Econ,7
+205,21,Philosophy,4
+206,21,DMD,5
+207,21,PPE,5
+208,21,Communications,4
+209,21,Statistics,6
+210,21,Marketing,5
+211,21,BE,5
+212,21,CBE,5
+213,21,Chemistry,5
+214,21,Polyscience,5
+215,21,English,5
+216,21,Psychology,5
+217,21,IPD,4
+218,21,MEAM,5
+219,21,Systems,6
+220,21,History,4
+221,17,"Sanjeev Khanna",5
+222,17,"Matthew Hersch",3
+223,17,"Steve Zdancewic",4
+224,2,"William Street Commo",10
+225,1,"Square on Square",3
+226,4,"Rival Bros",5
+227,6,"Tap House",8
+228,22,"Go to NY",4
+229,9,"Baby Blue's BBQ",7
+230,17,"Chris Murphy",2
+231,8,"New College House",4
+232,22,"The Franklin Institu",4
+233,22,"Magic Gardens",3
+234,22,"River Walk",4
+235,22,"Please Touch Museum",4
+236,22,"Spruce Street Harbor",6
+239,2,Harvest,9
+240,24,"Abner's Cheesesteaks",5
+241,24,"Zesto Pizza and Gril",4
+242,24,"Terry's Food Truck",3
+243,24,"Brotherly Grub Food ",3
+244,8,"King's Court English",8
+245,3,"Brotherly Grub",6
+246,11,"Rittenhouse Square",3
+247,5,"my bed",3
+248,20,"Field in front of th",3
+249,10,Fork,2
+250,10,"The Dandelion",2
+251,25,McDonald's,18
+252,25,"Qdoba Mexican Eats",16
+253,25,"Chipotle Mexican Gri",18
+254,25,"Jake's Sandwich Boar",17
+255,25,"Taco Bell",15
+256,25,Subway,14
+257,25,Quiznos,13
+258,22,"Reading Terminal Mar",8
+259,7,"Kildare's Manayunk",3
+260,10,"Dalessandro's Steaks",2
+261,10,"Bank & Bourbon",2
+262,18,"Penn Park",9
+263,5,Huntsman,1
+264,19,"Men's Swim Team",3
+265,12,Recommendr,3
+266,20,"On the toilet seat i",2
+267,14,"Ben & Jerry's",3
+268,14,capogiro,4
+269,12,FeedMe,2
+270,23,"Moore 100",3
+271,26,"College Hall",2
+272,26,"DRL ",4
+273,23,"Penn Museum",3
+274,22,Pottruck,3
+275,10,"Barclay Prime",2
+276,28,"Sig Nu",5
+277,17,"Rakesh Vohra",3
+278,27,Zeta,3
+279,25,"Nom Nom Ramen",8
+280,25,"Tap House",8
+281,25,"Ramen Bar",10
+282,25,Harvest,6
+283,25,"Chez Yasmine",6
+284,14,"Lil Pop Shop",3
+285,14,"Federal Donuts",2
+286,25,Zestos,8
+287,3,"DRL teriyaki truck",3
+288,3,"Smoothie truck",6
+289,25,Wawa,9
+290,18,"Singh Nanotech Build",5
+291,18,"Schumaker Green",5
+292,18,"Wynn Commons",4
+293,25,"Shake Shack",7
+294,16,"Down to 1st and Waln",6
+295,9,Abners,1
+296,9,Allegros,6
+297,9,"Axis Pizza",4
+298,9,"Bridge Cafe",4
+299,9,CopaBanana,5
+300,25,CopaBanana,7
+301,9,Cosi,4
+302,9,Distrito,4
+303,25,Dominos,6
+304,9,"Honest Tom's",5
+305,9,Hummus,5
+306,25,Hummus,7
+307,9,Aksum,2
+308,9,"Mad Mex",4
+310,1,Gojjo,3
+311,4,"Metro Bakery",7
+312,13,"Metro Bakery",3
+314,9,Pattaya,3
+315,9,POD,2
+316,9,Saladworks,3
+317,9,Tampopo,3
+318,9,Frontera,3
+319,28,"The Joe Lou fraterni",3
+320,29,"The Love Statue",7
+321,29,"Singh Nanotech Build",6
+322,29,"Rocky Steps",5
+323,29,"Harnwell RTL",4
+324,14,"Franklin Fountain",1
+325,9,Penne,1
+326,30,"Locust walk",3
+327,30,"DRL basement",4
+328,30,Room,5
+329,30,"VP basement bathroom",3
+330,17,"MATT BLAZE",1
+331,30,"ARCH basement",4
+332,30,"Fisher Fine Arts",2
+333,30,"Marks Cafe",1
+334,30,"The Quad",1
+335,30,"College Green",2
+336,30,"Platt benches",2
+337,3,YueKee,3
+338,18,"Biomedical Library",1
+339,29,"Benjamin Franklin Be",2
+340,29,"The Button",1
+341,25,"Fat Salmon",1
+342,1,"Renata's Cafe ",5
+343,24,"Pat's King of Steaks",3
+344,24,"Geno's Steaks",3
+345,24,"Jim's Steaks ",2
+346,2,Rx,4
+347,13,"Capo Giro",1
+348,13,"Federal Donuts",1
+349,6,"The Blarney Stone",2
+350,18,"High Rise Field",3
+351,28,"Apes ",3
+352,28,"Theos ",4
+353,28,Oz,4
+354,28,Castle,4
+355,28,Owls,4
+356,28,A's,4
+357,28,"Kappa Sig ",4
+358,28,"Phi Delt",4
+359,28,"Zata Psi ",4
+360,28,SAE,4
+361,28,Beta,4
+362,28,ZBT,4
+363,28,"Sig Chi",4
+364,28,TEP,3
+365,28,Pike,3
+367,29,"Lower/Upper Quad ",1
+369,26,"Weiss Tech House Bat",1
+373,25,"Jimmy John's",1
+374,20,"Huntsman GSR",1
+376,27,"Tri-Delt ",4
+377,27,"Alpha Chi Omega",2
+378,27,Theta,1
+379,27,SDT,2
+380,27,OAX,2
+381,27,Tabard,1
+382,19,"Men's Basketball",1
+383,26,"Biddle Law Library",1
+384,32,Hubbub,4
+385,32,Wawa,4
+387,33,McDonalds,1
+388,33,Zestos,2
+389,33,Allegro's,2
+390,3,"King's Wok",2
+391,32,"Schmear It",3
+392,10,Amada,1
+393,24,"Joe's Steaks + Soda ",1
+394,34,Kiwi,3
+395,34,Yogorino,3
+396,34,"Ben & Jerry's",4
+397,34,Capogiro,3
+398,35,Harvest,1
+399,35,"White Dog",2
+400,35,"Ramen Bar",1
+401,35,Copabanana,2
+402,35,MadMex,2
+403,33,FroGro,2
+404,3,"Dos Hermanos",2
+405,31,Frogro,1
+406,36,Zestos,4
+407,25,"Sweet Green",2
+408,1,"A Mandarin",11
+409,21,"International Relations",2
+410,28,SigEp,4
+411,36,"Enjay's Pizza",3
+412,36,Allegro's,3
+413,1,"Erawan Thai Cuisine",3
+414,36,Zavino,2
+415,17,"Linda Kurth",1
+416,4,"chilli kaffe",2
+417,26,"Pottruck 3rd floor bathroom",1
+418,26,"6th Floor Van Pelt",1
+419,32,"Metropolitan Bakery",1
+420,27,"Sigma Kappa",2
+421,37,"Bianca Pham",1
+422,37,"Steffi Maiman",1
+428,4,Menagerie,2
